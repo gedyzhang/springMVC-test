@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.itcast.ssm.mapper.OrderMapper" >
+	
+  <resultMap id="BaseResultMap" type="cn.itcast.ssm.po.Order" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="color" property="color" jdbcType="VARCHAR" />
+    <result column="number" property="number" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <select id="selectOrderById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from orderlist
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+	
+  <sql id="Base_Column_List" >
+    id, name, price, state, color, number
+  </sql>
+	
+	
+  <insert id="insertOrder" parameterType="cn.itcast.ssm.po.Order" >
+    insert into  orderlist
+     (
+     <if test="id != null" >
+        id,
+      </if>
+      name, price, state, color, number)
+    values     
+    (
+    <if test="id != null" >
+         #{id,jdbcType=INTEGER},
+      </if>
+    
+    #{name,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, 
+      #{state,jdbcType=INTEGER}, #{color,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR})
+     
+  </insert>
+  
+  <delete id="deleteOrderById" parameterType="java.lang.Integer" >
+    delete from orderlist
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <update id="updateOrderById" parameterType="cn.itcast.ssm.po.Order" >
+    update orderlist
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="color != null" >
+        color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null" >
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <insert id="batchSave" parameterType="java.util.ArrayList" >
+    INSERT INTO orderlist (name,price,state,color,number)
+    VALUES
+    <foreach item="item" index="index" collection="list" separator="," >
+        ( #{item.name}, #{item.price}, #{item.state} , #{item.color}, #{item.number})
+    </foreach>
+</insert>
+
+</mapper>
