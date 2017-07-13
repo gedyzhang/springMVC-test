@@ -33,7 +33,7 @@ public class UserController {
 	@RequestMapping("/showFreemarker")
 	public String ShowFreeMarkerHello(HttpServletRequest request,Model model){
 		model.addAttribute("user", "zhangsan");
-		return "hello";
+		return "hello.ftl";
 	}
 	@RequestMapping("/test")
 	public ModelAndView showTest(HttpServletRequest request,HttpServletResponse response){
@@ -49,7 +49,7 @@ public class UserController {
 		map.put("ad", "ad");
 		
 		mavAndView.addObject("maplist",map);
-		mavAndView.setViewName("test_fm");
+		mavAndView.setViewName("test_fm.ftl");
 		
 		return mavAndView;
 		
@@ -57,7 +57,7 @@ public class UserController {
 	@RequestMapping("/post4")
 	public String showPostString(HttpServletRequest request,Model model){
 		model.addAttribute("user","zhang");
-		return "post4";
+		return "post4.ftl";
 		
 	}
 }

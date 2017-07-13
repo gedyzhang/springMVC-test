@@ -1,0 +1,462 @@
+[INFO] [2017-07-13 14:44:20][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+  [INFO] [2017-07-13 14:44:20][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Thu Jul 13 14:44:20 CST 2017]; root of context hierarchy
+  [INFO] [2017-07-13 14:44:20][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2017-07-13 14:44:21][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-07-13 14:44:21][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [ERROR] [2017-07-13 14:44:21][org.springframework.web.context.ContextLoader]Context initialization failed
+  org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderService': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [cn.itcast.ssm.mapper.OrderMapper] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@javax.annotation.Resource(mappedName=, shareable=true, description=, name=, type=class java.lang.Object, lookup=, authenticationType=CONTAINER)}
+Related cause: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderMapper' defined in file [D:\code\test-sourcetree\target\classes\cn\itcast\ssm\mapper\OrderMapper.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\code\test-sourcetree\target\classes\cn\itcast\ssm\mapper\UserMapper.xml]'; nested exception is java.io.FileNotFoundException: D:\code\test-sourcetree\target\classes\cn\itcast\ssm\mapper\UserMapper.xml (系统找不到指定的路径。)
+Related cause: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userMapper' defined in file [D:\code\test-sourcetree\target\classes\cn\itcast\ssm\mapper\UserMapper.class]: Initialization of bean failed; nested exception is org.springframework.beans.TypeMismatchException: Failed to convert property value of type 'java.lang.String' to required type 'java.lang.Class' for property 'mapperInterface'; nested exception is java.lang.IllegalArgumentException: Cannot find class [cn.itcast.ssm.mapper.UserMapper]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:307)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1185)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:700)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:760)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:482)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:403)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:306)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:106)
+	at org.eclipse.jetty.server.handler.ContextHandler.callContextInitialized(ContextHandler.java:782)
+	at org.eclipse.jetty.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:424)
+	at org.eclipse.jetty.server.handler.ContextHandler.startContext(ContextHandler.java:774)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:249)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1242)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:717)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:494)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:282)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at net.sourceforge.eclipsejetty.starter.embedded.JettyEmbeddedAdapter.start(JettyEmbeddedAdapter.java:67)
+	at net.sourceforge.eclipsejetty.starter.common.AbstractJettyLauncherMain.launch(AbstractJettyLauncherMain.java:85)
+	at net.sourceforge.eclipsejetty.starter.embedded.JettyEmbeddedLauncherMain.main(JettyEmbeddedLauncherMain.java:42)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderService': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [cn.itcast.ssm.mapper.OrderMapper] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@javax.annotation.Resource(mappedName=, shareable=true, description=, name=, type=class java.lang.Object, lookup=, authenticationType=CONTAINER)}
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:307)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1185)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:445)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:419)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:544)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:155)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:304)
+	... 27 more
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type [cn.itcast.ssm.mapper.OrderMapper] found for dependency: expected at least 1 bean which qualifies as autowire candidate for this dependency. Dependency annotations: {@javax.annotation.Resource(mappedName=, shareable=true, description=, name=, type=class java.lang.Object, lookup=, authenticationType=CONTAINER)}
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoSuchBeanDefinitionException(DefaultListableBeanFactory.java:1100)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:960)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:855)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:441)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:419)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:544)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:155)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:304)
+	... 40 more
+Related cause:
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'orderMapper' defined in file [D:\code\test-sourcetree\target\classes\cn\itcast\ssm\mapper\OrderMapper.class]: Cannot resolve reference to bean 'sqlSessionFactory' while setting bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\code\test-sourcetree\target\classes\cn\itcast\ssm\mapper\UserMapper.xml]'; nested exception is java.io.FileNotFoundException: D:\code\test-sourcetree\target\classes\cn\itcast\ssm\mapper\UserMapper.xml (系统找不到指定的路径。)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:328)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:107)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1456)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1197)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getTypeForFactoryBean(AbstractBeanFactory.java:1420)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryBean(AbstractAutowireCapableBeanFactory.java:788)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isTypeMatch(AbstractBeanFactory.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:384)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:361)
+	at org.springframework.beans.factory.BeanFactoryUtils.beanNamesForTypeIncludingAncestors(BeanFactoryUtils.java:187)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:999)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:957)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:855)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:441)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:419)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:544)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:155)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:304)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1185)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:445)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:419)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:544)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:155)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:304)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1185)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:700)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:760)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:482)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:403)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:306)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:106)
+	at org.eclipse.jetty.server.handler.ContextHandler.callContextInitialized(ContextHandler.java:782)
+	at org.eclipse.jetty.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:424)
+	at org.eclipse.jetty.server.handler.ContextHandler.startContext(ContextHandler.java:774)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:249)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1242)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:717)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:494)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:282)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at net.sourceforge.eclipsejetty.starter.embedded.JettyEmbeddedAdapter.start(JettyEmbeddedAdapter.java:67)
+	at net.sourceforge.eclipsejetty.starter.common.AbstractJettyLauncherMain.launch(AbstractJettyLauncherMain.java:85)
+	at net.sourceforge.eclipsejetty.starter.embedded.JettyEmbeddedLauncherMain.main(JettyEmbeddedLauncherMain.java:42)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [spring-mybatis.xml]: Invocation of init method failed; nested exception is org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\code\test-sourcetree\target\classes\cn\itcast\ssm\mapper\UserMapper.xml]'; nested exception is java.io.FileNotFoundException: D:\code\test-sourcetree\target\classes\cn\itcast\ssm\mapper\UserMapper.xml (系统找不到指定的路径。)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:320)
+	... 63 more
+Caused by: org.springframework.core.NestedIOException: Failed to parse mapping resource: 'file [D:\code\test-sourcetree\target\classes\cn\itcast\ssm\mapper\UserMapper.xml]'; nested exception is java.io.FileNotFoundException: D:\code\test-sourcetree\target\classes\cn\itcast\ssm\mapper\UserMapper.xml (系统找不到指定的路径。)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:466)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:340)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1612)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1549)
+	... 70 more
+Caused by: java.io.FileNotFoundException: D:\code\test-sourcetree\target\classes\cn\itcast\ssm\mapper\UserMapper.xml (系统找不到指定的路径。)
+	at java.io.FileInputStream.open(Native Method)
+	at java.io.FileInputStream.<init>(FileInputStream.java:146)
+	at org.springframework.core.io.FileSystemResource.getInputStream(FileSystemResource.java:114)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:462)
+	... 73 more
+Related cause:
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userMapper' defined in file [D:\code\test-sourcetree\target\classes\cn\itcast\ssm\mapper\UserMapper.class]: Initialization of bean failed; nested exception is org.springframework.beans.TypeMismatchException: Failed to convert property value of type 'java.lang.String' to required type 'java.lang.Class' for property 'mapperInterface'; nested exception is java.lang.IllegalArgumentException: Cannot find class [cn.itcast.ssm.mapper.UserMapper]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:547)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getTypeForFactoryBean(AbstractBeanFactory.java:1420)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryBean(AbstractAutowireCapableBeanFactory.java:788)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isTypeMatch(AbstractBeanFactory.java:543)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:384)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:361)
+	at org.springframework.beans.factory.BeanFactoryUtils.beanNamesForTypeIncludingAncestors(BeanFactoryUtils.java:187)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:999)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:957)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:855)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:441)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:419)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:544)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:155)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:304)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1185)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:445)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:419)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:544)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:155)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessPropertyValues(CommonAnnotationBeanPostProcessor.java:304)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1185)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:700)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:760)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:482)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:403)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:306)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:106)
+	at org.eclipse.jetty.server.handler.ContextHandler.callContextInitialized(ContextHandler.java:782)
+	at org.eclipse.jetty.servlet.ServletContextHandler.callContextInitialized(ServletContextHandler.java:424)
+	at org.eclipse.jetty.server.handler.ContextHandler.startContext(ContextHandler.java:774)
+	at org.eclipse.jetty.servlet.ServletContextHandler.startContext(ServletContextHandler.java:249)
+	at org.eclipse.jetty.webapp.WebAppContext.startContext(WebAppContext.java:1242)
+	at org.eclipse.jetty.server.handler.ContextHandler.doStart(ContextHandler.java:717)
+	at org.eclipse.jetty.webapp.WebAppContext.doStart(WebAppContext.java:494)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.doStart(HandlerWrapper.java:95)
+	at org.eclipse.jetty.server.Server.doStart(Server.java:282)
+	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:64)
+	at net.sourceforge.eclipsejetty.starter.embedded.JettyEmbeddedAdapter.start(JettyEmbeddedAdapter.java:67)
+	at net.sourceforge.eclipsejetty.starter.common.AbstractJettyLauncherMain.launch(AbstractJettyLauncherMain.java:85)
+	at net.sourceforge.eclipsejetty.starter.embedded.JettyEmbeddedLauncherMain.main(JettyEmbeddedLauncherMain.java:42)
+Caused by: org.springframework.beans.TypeMismatchException: Failed to convert property value of type 'java.lang.String' to required type 'java.lang.Class' for property 'mapperInterface'; nested exception is java.lang.IllegalArgumentException: Cannot find class [cn.itcast.ssm.mapper.UserMapper]
+	at org.springframework.beans.BeanWrapperImpl.convertIfNecessary(BeanWrapperImpl.java:479)
+	at org.springframework.beans.BeanWrapperImpl.convertForProperty(BeanWrapperImpl.java:511)
+	at org.springframework.beans.BeanWrapperImpl.convertForProperty(BeanWrapperImpl.java:505)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.convertForProperty(AbstractAutowireCapableBeanFactory.java:1502)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1461)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1197)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537)
+	... 59 more
+Caused by: java.lang.IllegalArgumentException: Cannot find class [cn.itcast.ssm.mapper.UserMapper]
+	at org.springframework.util.ClassUtils.resolveClassName(ClassUtils.java:272)
+	at org.springframework.beans.propertyeditors.ClassEditor.setAsText(ClassEditor.java:63)
+	at org.springframework.beans.TypeConverterDelegate.doConvertTextValue(TypeConverterDelegate.java:430)
+	at org.springframework.beans.TypeConverterDelegate.doConvertValue(TypeConverterDelegate.java:403)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:181)
+	at org.springframework.beans.BeanWrapperImpl.convertIfNecessary(BeanWrapperImpl.java:459)
+	... 65 more
+Caused by: java.lang.ClassNotFoundException: cn.itcast.ssm.mapper.UserMapper
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:354)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:425)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	at org.eclipse.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:430)
+	at org.eclipse.jetty.webapp.WebAppClassLoader.loadClass(WebAppClassLoader.java:383)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:236)
+	at org.springframework.util.ClassUtils.resolveClassName(ClassUtils.java:269)
+	... 70 more
+[INFO] [2017-07-13 14:44:26][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+  [INFO] [2017-07-13 14:44:26][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Thu Jul 13 14:44:26 CST 2017]; root of context hierarchy
+  [INFO] [2017-07-13 14:44:26][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2017-07-13 14:44:27][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-07-13 14:44:27][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-07-13 14:44:27][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 956 ms
+  [INFO] [2017-07-13 14:44:27][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+  [INFO] [2017-07-13 14:44:27][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Thu Jul 13 14:44:27 CST 2017]; parent: Root WebApplicationContext
+  [INFO] [2017-07-13 14:44:27][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+  [INFO] [2017-07-13 14:44:27][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-07-13 14:44:27][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.insert(java.lang.String,java.lang.String)
+  [INFO] [2017-07-13 14:44:27][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//aaa],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.a(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 14:44:27][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//createOrder],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.createNewOrder(cn.itcast.ssm.po.Order)
+  [INFO] [2017-07-13 14:44:27][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//detail],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.showDetail()
+  [INFO] [2017-07-13 14:44:27][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//delete],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.deleteOrder(int)
+  [INFO] [2017-07-13 14:44:27][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//show],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.showOrder(org.springframework.ui.Model,int)
+  [INFO] [2017-07-13 14:44:27][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.updateOrder(int)
+  [INFO] [2017-07-13 14:44:27][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/showFreemarker],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.ShowFreeMarkerHello(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 14:44:27][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/post4],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.showPostString(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 14:44:27][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/showUser],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.toIndex(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 14:44:27][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.itcast.ssm.controller.UserController.showTest(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+  [INFO] [2017-07-13 14:44:28][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/images/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+  [INFO] [2017-07-13 14:44:28][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/scripts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+  [INFO] [2017-07-13 14:44:28][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/styles/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+  [INFO] [2017-07-13 14:44:28][org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer]ClassTemplateLoader for Spring macros added to FreeMarker configuration
+  [INFO] [2017-07-13 14:44:28][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 808 ms
+  [INFO] [2017-07-13 14:45:16][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+  [INFO] [2017-07-13 14:45:16][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Thu Jul 13 14:45:16 CST 2017]; root of context hierarchy
+  [INFO] [2017-07-13 14:45:16][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2017-07-13 14:45:16][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-07-13 14:45:16][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-07-13 14:45:17][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 723 ms
+  [INFO] [2017-07-13 14:45:17][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+  [INFO] [2017-07-13 14:45:17][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Thu Jul 13 14:45:17 CST 2017]; parent: Root WebApplicationContext
+  [INFO] [2017-07-13 14:45:17][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+  [INFO] [2017-07-13 14:45:17][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-07-13 14:45:17][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.insert(java.lang.String,java.lang.String)
+  [INFO] [2017-07-13 14:45:17][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//aaa],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.a(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 14:45:17][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//detail],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.showDetail()
+  [INFO] [2017-07-13 14:45:17][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//delete],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.deleteOrder(int)
+  [INFO] [2017-07-13 14:45:17][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//show],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.showOrder(org.springframework.ui.Model,int)
+  [INFO] [2017-07-13 14:45:17][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.updateOrder(int)
+  [INFO] [2017-07-13 14:45:17][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//createOrder],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.createNewOrder(cn.itcast.ssm.po.Order)
+  [INFO] [2017-07-13 14:45:17][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/showUser],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.toIndex(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 14:45:17][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.itcast.ssm.controller.UserController.showTest(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+  [INFO] [2017-07-13 14:45:17][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/showFreemarker],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.ShowFreeMarkerHello(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 14:45:17][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/post4],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.showPostString(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 14:45:18][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/images/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+  [INFO] [2017-07-13 14:45:18][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/scripts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+  [INFO] [2017-07-13 14:45:18][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/styles/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+  [INFO] [2017-07-13 14:45:18][org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer]ClassTemplateLoader for Spring macros added to FreeMarker configuration
+  [INFO] [2017-07-13 14:45:18][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 867 ms
+  [WARN] [2017-07-13 14:45:32][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/] in DispatcherServlet with name 'SpringMVC'
+  [WARN] [2017-07-13 14:45:32][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/favicon.ico] in DispatcherServlet with name 'SpringMVC'
+  [WARN] [2017-07-13 14:46:53][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/aaa/baoming/a] in DispatcherServlet with name 'SpringMVC'
+  [WARN] [2017-07-13 14:47:04][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/aaa/baoming/a.ftl] in DispatcherServlet with name 'SpringMVC'
+  [WARN] [2017-07-13 14:48:05][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/user/showuser] in DispatcherServlet with name 'SpringMVC'
+  [INFO] [2017-07-13 14:49:35][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+  [INFO] [2017-07-13 14:49:35][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Thu Jul 13 14:49:35 CST 2017]; root of context hierarchy
+  [INFO] [2017-07-13 14:49:36][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2017-07-13 14:49:36][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-07-13 14:49:36][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-07-13 14:49:36][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 802 ms
+  [INFO] [2017-07-13 14:49:36][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+  [INFO] [2017-07-13 14:49:36][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Thu Jul 13 14:49:36 CST 2017]; parent: Root WebApplicationContext
+  [INFO] [2017-07-13 14:49:36][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+  [INFO] [2017-07-13 14:49:36][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-07-13 14:49:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.insert(java.lang.String,java.lang.String)
+  [INFO] [2017-07-13 14:49:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//aaa],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.a(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 14:49:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//detail],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.showDetail()
+  [INFO] [2017-07-13 14:49:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//delete],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.deleteOrder(int)
+  [INFO] [2017-07-13 14:49:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//show],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.showOrder(org.springframework.ui.Model,int)
+  [INFO] [2017-07-13 14:49:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.updateOrder(int)
+  [INFO] [2017-07-13 14:49:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//createOrder],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.createNewOrder(cn.itcast.ssm.po.Order)
+  [INFO] [2017-07-13 14:49:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/showUser],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.toIndex(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 14:49:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.itcast.ssm.controller.UserController.showTest(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+  [INFO] [2017-07-13 14:49:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/showFreemarker],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.ShowFreeMarkerHello(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 14:49:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/post4],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.showPostString(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 14:49:37][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/images/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+  [INFO] [2017-07-13 14:49:37][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/scripts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+  [INFO] [2017-07-13 14:49:37][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/styles/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+  [INFO] [2017-07-13 14:49:37][org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer]ClassTemplateLoader for Spring macros added to FreeMarker configuration
+  [INFO] [2017-07-13 14:49:37][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 1014 ms
+  [INFO] [2017-07-13 14:57:44][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+  [INFO] [2017-07-13 14:57:44][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Thu Jul 13 14:57:44 CST 2017]; root of context hierarchy
+  [INFO] [2017-07-13 14:57:44][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2017-07-13 14:57:45][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-07-13 14:57:45][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-07-13 14:57:45][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 750 ms
+  [INFO] [2017-07-13 14:57:45][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+  [INFO] [2017-07-13 14:57:45][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Thu Jul 13 14:57:45 CST 2017]; parent: Root WebApplicationContext
+  [INFO] [2017-07-13 14:57:45][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+  [INFO] [2017-07-13 14:57:45][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-07-13 14:57:45][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.insert(java.lang.String,java.lang.String)
+  [INFO] [2017-07-13 14:57:45][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//aaa],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.a(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 14:57:45][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//createOrder],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.createNewOrder(cn.itcast.ssm.po.Order)
+  [INFO] [2017-07-13 14:57:45][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//detail],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.showDetail()
+  [INFO] [2017-07-13 14:57:45][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//delete],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.deleteOrder(int)
+  [INFO] [2017-07-13 14:57:45][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//show],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.showOrder(org.springframework.ui.Model,int)
+  [INFO] [2017-07-13 14:57:45][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.updateOrder(int)
+  [INFO] [2017-07-13 14:57:45][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/showFreemarker],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.ShowFreeMarkerHello(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 14:57:45][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/post4],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.showPostString(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 14:57:45][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/showUser],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.toIndex(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 14:57:45][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.itcast.ssm.controller.UserController.showTest(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+  [INFO] [2017-07-13 14:57:46][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/images/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+  [INFO] [2017-07-13 14:57:46][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/scripts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+  [INFO] [2017-07-13 14:57:46][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/styles/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+  [INFO] [2017-07-13 14:57:46][org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer]ClassTemplateLoader for Spring macros added to FreeMarker configuration
+  [INFO] [2017-07-13 14:57:46][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 839 ms
+  [WARN] [2017-07-13 14:57:52][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/WEB-INF/ftl/post4.ftl] in DispatcherServlet with name 'SpringMVC'
+  [WARN] [2017-07-13 14:59:29][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/WEB-INF/ftl/post4.ftl] in DispatcherServlet with name 'SpringMVC'
+  [INFO] [2017-07-13 15:02:57][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+  [INFO] [2017-07-13 15:02:58][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Thu Jul 13 15:02:58 CST 2017]; root of context hierarchy
+  [INFO] [2017-07-13 15:02:58][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2017-07-13 15:02:58][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-07-13 15:02:58][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-07-13 15:02:58][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 799 ms
+  [INFO] [2017-07-13 15:02:58][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+  [INFO] [2017-07-13 15:02:58][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Thu Jul 13 15:02:58 CST 2017]; parent: Root WebApplicationContext
+  [INFO] [2017-07-13 15:02:58][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+  [INFO] [2017-07-13 15:02:59][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-07-13 15:02:59][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.insert(java.lang.String,java.lang.String)
+  [INFO] [2017-07-13 15:02:59][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//aaa],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.a(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 15:02:59][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//detail],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.showDetail()
+  [INFO] [2017-07-13 15:02:59][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//delete],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.deleteOrder(int)
+  [INFO] [2017-07-13 15:02:59][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//show],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.showOrder(org.springframework.ui.Model,int)
+  [INFO] [2017-07-13 15:02:59][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.updateOrder(int)
+  [INFO] [2017-07-13 15:02:59][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//createOrder],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.createNewOrder(cn.itcast.ssm.po.Order)
+  [INFO] [2017-07-13 15:02:59][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/showUser],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.toIndex(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 15:02:59][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.itcast.ssm.controller.UserController.showTest(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+  [INFO] [2017-07-13 15:02:59][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/showFreemarker],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.ShowFreeMarkerHello(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 15:02:59][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/post4],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.showPostString(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 15:02:59][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/images/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+  [INFO] [2017-07-13 15:02:59][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/scripts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+  [INFO] [2017-07-13 15:02:59][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/styles/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+  [INFO] [2017-07-13 15:02:59][org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer]ClassTemplateLoader for Spring macros added to FreeMarker configuration
+  [INFO] [2017-07-13 15:02:59][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 839 ms
+  [WARN] [2017-07-13 15:03:07][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/WEB-INF/ftl/post4.ftl] in DispatcherServlet with name 'SpringMVC'
+  [WARN] [2017-07-13 15:03:08][org.springframework.web.servlet.PageNotFound]No mapping found for HTTP request with URI [/WEB-INF/ftl/post4.ftl] in DispatcherServlet with name 'SpringMVC'
+  [INFO] [2017-07-13 15:03:45][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+  [INFO] [2017-07-13 15:03:45][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Thu Jul 13 15:03:45 CST 2017]; root of context hierarchy
+  [INFO] [2017-07-13 15:03:45][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2017-07-13 15:03:45][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-07-13 15:03:45][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 729 ms
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Thu Jul 13 15:03:46 CST 2017]; parent: Root WebApplicationContext
+  [INFO] [2017-07-13 15:03:46][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+  [INFO] [2017-07-13 15:03:46][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.insert(java.lang.String,java.lang.String)
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//aaa],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.a(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//createOrder],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.createNewOrder(cn.itcast.ssm.po.Order)
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//detail],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.showDetail()
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//delete],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.deleteOrder(int)
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//show],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.showOrder(org.springframework.ui.Model,int)
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.updateOrder(int)
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/showFreemarker],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.ShowFreeMarkerHello(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/post4],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.showPostString(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/showUser],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.toIndex(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.itcast.ssm.controller.UserController.showTest(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/images/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/scripts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/styles/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer]ClassTemplateLoader for Spring macros added to FreeMarker configuration
+  [INFO] [2017-07-13 15:03:46][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 852 ms
+  [INFO] [2017-07-13 15:07:36][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+  [INFO] [2017-07-13 15:07:36][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Thu Jul 13 15:07:36 CST 2017]; root of context hierarchy
+  [INFO] [2017-07-13 15:07:36][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2017-07-13 15:07:36][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-07-13 15:07:36][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-07-13 15:07:36][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 755 ms
+  [INFO] [2017-07-13 15:07:37][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+  [INFO] [2017-07-13 15:07:37][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Thu Jul 13 15:07:37 CST 2017]; parent: Root WebApplicationContext
+  [INFO] [2017-07-13 15:07:37][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+  [INFO] [2017-07-13 15:07:37][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-07-13 15:07:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.insert(java.lang.String,java.lang.String)
+  [INFO] [2017-07-13 15:07:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//aaa],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.a(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 15:07:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//detail],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.showDetail()
+  [INFO] [2017-07-13 15:07:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//createOrder],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.createNewOrder(cn.itcast.ssm.po.Order)
+  [INFO] [2017-07-13 15:07:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//show],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.showOrder(org.springframework.ui.Model,int)
+  [INFO] [2017-07-13 15:07:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//delete],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.deleteOrder(int)
+  [INFO] [2017-07-13 15:07:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.updateOrder(int)
+  [INFO] [2017-07-13 15:07:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/showFreemarker],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.ShowFreeMarkerHello(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 15:07:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/post4],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.showPostString(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 15:07:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/showUser],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.toIndex(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 15:07:37][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.itcast.ssm.controller.UserController.showTest(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+  [INFO] [2017-07-13 15:07:37][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/images/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+  [INFO] [2017-07-13 15:07:37][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/scripts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+  [INFO] [2017-07-13 15:07:37][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/styles/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+  [INFO] [2017-07-13 15:07:37][org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer]ClassTemplateLoader for Spring macros added to FreeMarker configuration
+  [INFO] [2017-07-13 15:07:37][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 811 ms
+  [INFO] [2017-07-13 15:14:52][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization started
+  [INFO] [2017-07-13 15:14:52][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing Root WebApplicationContext: startup date [Thu Jul 13 15:14:52 CST 2017]; root of context hierarchy
+  [INFO] [2017-07-13 15:14:52][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mybatis.xml]
+  [INFO] [2017-07-13 15:14:52][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [jdbc.properties]
+  [INFO] [2017-07-13 15:14:52][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-07-13 15:14:53][org.springframework.web.context.ContextLoader]Root WebApplicationContext: initialization completed in 733 ms
+  [INFO] [2017-07-13 15:14:53][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization started
+  [INFO] [2017-07-13 15:14:53][org.springframework.web.context.support.XmlWebApplicationContext]Refreshing WebApplicationContext for namespace 'SpringMVC-servlet': startup date [Thu Jul 13 15:14:53 CST 2017]; parent: Root WebApplicationContext
+  [INFO] [2017-07-13 15:14:53][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from class path resource [spring-mvc.xml]
+  [INFO] [2017-07-13 15:14:53][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+  [INFO] [2017-07-13 15:14:53][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//insert],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.insert(java.lang.String,java.lang.String)
+  [INFO] [2017-07-13 15:14:53][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//aaa],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.a(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 15:14:53][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//createOrder],methods=[POST],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.createNewOrder(cn.itcast.ssm.po.Order)
+  [INFO] [2017-07-13 15:14:53][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//detail],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.showDetail()
+  [INFO] [2017-07-13 15:14:53][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//delete],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.deleteOrder(int)
+  [INFO] [2017-07-13 15:14:53][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//show],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.showOrder(org.springframework.ui.Model,int)
+  [INFO] [2017-07-13 15:14:53][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[//update],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.OrderController.updateOrder(int)
+  [INFO] [2017-07-13 15:14:53][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/showFreemarker],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.ShowFreeMarkerHello(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 15:14:53][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/post4],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.showPostString(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 15:14:53][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/showUser],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public java.lang.String cn.itcast.ssm.controller.UserController.toIndex(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+  [INFO] [2017-07-13 15:14:53][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping]Mapped "{[/user/test],methods=[],params=[],headers=[],consumes=[],produces=[],custom=[]}" onto public org.springframework.web.servlet.ModelAndView cn.itcast.ssm.controller.UserController.showTest(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+  [INFO] [2017-07-13 15:14:53][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/images/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+  [INFO] [2017-07-13 15:14:53][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/scripts/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
+  [INFO] [2017-07-13 15:14:53][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/styles/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+  [INFO] [2017-07-13 15:14:53][org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer]ClassTemplateLoader for Spring macros added to FreeMarker configuration
+  [INFO] [2017-07-13 15:14:54][org.springframework.web.servlet.DispatcherServlet]FrameworkServlet 'SpringMVC': initialization completed in 938 ms
+  
